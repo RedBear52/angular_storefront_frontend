@@ -1,27 +1,9 @@
 <div class="product-list-container">
-    <div class="product-list">
-        <div class="product-list-item" *ngFor="let product of products">
-            <div class="product-list-item-image">
-                <img
-                    src="{{ product.url }}"
-                    alt="{{ product.name }}"
-                    [ngStyle]="{ 'max-width': '25vh', 'max-height': '50vh' }"
-                />
-            </div>
-            <div class="product-list-item-details">
-                <div class="product-list-item-name">{{ product.name }}</div>
-                <div class="product-list-item-price">
-                    {{ product.price }}
-                </div>
-                <div class="product-list-item-description">
-                    {{ product.description }}
-                </div>
-            </div>
-            <div class="product-list-item-actions">
-                <button class="btn btn-primary" (click)="addToCart(product)">
-                    Add to cart
-                </button>
-            </div>
-        </div>
-    </div>
+    <app-product-list-item
+        *ngFor="let product of products"
+        class="product-list-container"
+        [product]="product"
+        (onAddProductToCart)="addToCart(product)"
+    >
+    </app-product-list-item>
 </div>

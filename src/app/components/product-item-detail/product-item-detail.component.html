@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="img-container">
+        <div class="product-detail-image">
+            <img
+                [ngStyle]="{
+                    width: '85%',
+                    height: '85%'
+                }"
+                src="{{ product.url }}"
+                alt="{{ product.name }}"
+            />
+        </div>
+    </div>
+    <div class="details-container">
+        <div class="name">
+            <p>{{ product.name }}</p>
+        </div>
+        <div class="price">
+            <p>${{ product.price }}</p>
+        </div>
+        <div class="description">
+            <p>{{ product.description }}</p>
+        </div>
+        <div class="quantity">
+            <p>{{ product.quantity }}</p>
+        </div>
+        <div class="btn">
+            <button
+                (click)="onAddToCart(product)"
+                class="product-list-item-actions"
+                class="product-list-item-button"
+            >
+                Add to cart
+            </button>
+        </div>
+        <div class="link">
+            <a routerLink="/">Return to the store</a>
+        </div>
+    </div>
+</div>
