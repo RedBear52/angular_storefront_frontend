@@ -1,0 +1,23 @@
+<div class="product-list">
+    <div class="product-list-item">
+        <div class="product-list-item-image">
+            <a routerLink="/product-detail">
+                <img
+                    [ngStyle]="{
+                        width: '52px',
+                        height: '105px'
+                    }"
+                    src="{{ product.url }}"
+                    alt="{{ product.name }}"
+                />
+            </a>
+        </div>
+        <div class="product-list-item-details">
+            <div class="product-list-item-name">{{ product.name }}</div>
+            <div class="product-list-item-price">${{ product.price }}</div>
+            <div class="product-list-item-description">
+                {{ product.description }}
+            </div>
+        </div>
+    </div>
+</div>

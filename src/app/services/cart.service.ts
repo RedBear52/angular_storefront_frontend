@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Product } from '../models/Product'
+import { Checkout } from '../models/Checkout'
 
 @Injectable({
     providedIn: 'root',
@@ -9,11 +10,20 @@ export class CartService {
     cartQuantity: number
     total: number
     productQuantity: number
+    saleDetails: Checkout
 
     constructor() {
         this.cartQuantity = 0
         this.total = 0
         this.productQuantity = 0
+        this.saleDetails = {
+            fullName: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            cardNumber: '',
+        }
     }
 
     addToCart(product: Product) {
@@ -62,5 +72,35 @@ export class CartService {
     getProductQuantity(product: Product): number {
         console.log(product.quantity)
         return product.quantity
+    }
+
+    changeQuantity(product: Product, quantity: number) {
+        console.log(`Product quantity: `, quantity)
+        product.quantity = quantity
+        this.getProductQuantity(product)
+    }
+
+    confirmSale(saleDetails: Checkout) {
+        console.log(`saleDetails: `, saleDetails)
+
+        alert(`Thank you for your purchase!
+        Your order has been placed.
+        Your order will be shipped to:
+        ${saleDetails.fullName}
+        ${saleDetails.address}
+        ${saleDetails.city}, ${saleDetails.state} ${saleDetails.zip}
+
+        Your total was: $${this.getCartTotal()}
+            
+        Thank you for shopping with us!
+                `)
+        this.saleDetails = saleDetails
+        this.showSaleDetails()
+    }
+
+    showSaleDetails(): Checkout {
+        console.log(`Sale Details: `, this.saleDetails)
+
+        return this.saleDetails
     }
 }

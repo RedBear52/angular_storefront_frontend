@@ -1,13 +1,10 @@
-<h1>Your Cart</h1>
-<div>
-    <img src="{{ cart[0].url }}" />
+<div class="product-list-container">
+    <app-cart-item *ngFor="let product of cart" [product]="product">
+    </app-cart-item>
 </div>
-<div>
-    {{ cart[0].name }}
+<div class="checkout-container">
+    <app-checkout (onCheckout)="onConfirmSale($event)"> </app-checkout>
 </div>
-<div>
-    {{ cart[0].price }}
-</div>
-<div>
-    {{ cart[0].description }}
+<div class="confirmation">
+    <app-confirmation></app-confirmation>
 </div>

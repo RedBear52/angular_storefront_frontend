@@ -22,7 +22,15 @@
             <p>{{ product.description }}</p>
         </div>
         <div class="quantity">
-            <p>{{ getProductQuantity(product) }}</p>
+            <select
+                #userSelection
+                (change)="onChangeQuantity(product, +userSelection.value)"
+                class="user-quant-input"
+            >
+                <option *ngFor="let num of itemCount">
+                    {{ num }}
+                </option>
+            </select>
         </div>
         <div class="btn">
             <button

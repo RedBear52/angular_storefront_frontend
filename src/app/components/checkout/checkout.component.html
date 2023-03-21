@@ -1,0 +1,27 @@
+<form>
+    <h1>Checkout Form</h1>
+    <input
+        type="text"
+        name="fullName"
+        placeholder="Tater Jenkins"
+        [(ngModel)]="fullName"
+    />
+    <input
+        type="text"
+        name="address"
+        placeholder="1234 Main St"
+        [(ngModel)]="address"
+    />
+    <input type="text" name="city" placeholder="Anytown" [(ngModel)]="city" />
+    <input type="text" name="state" placeholder="CA" [(ngModel)]="state" />
+    <input type="text" name="zip" placeholder="12345" [(ngModel)]="zip" />
+    <input
+        type="text"
+        name="cardName"
+        placeholder="1234 5678 9012 3456"
+        [(ngModel)]="cardName"
+    />
+    <button type="submit" value="submit" class="btn" (click)="onSubmit()">
+        Complete Purchase
+    </button>
+</form>

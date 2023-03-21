@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Product } from '../../models/Product'
 import { CartService } from '../../services/cart.service'
+import { Checkout } from '../../models/Checkout'
 
 @Component({
     selector: 'app-cart',
@@ -8,11 +9,27 @@ import { CartService } from '../../services/cart.service'
     styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
+    checkout: Checkout
     cart: Product[] = []
 
-    constructor(private cartService: CartService) {}
+    constructor(private cartService: CartService) {
+        this.checkout = {
+            fullName: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            cardNumber: '',
+        }
+    }
 
     ngOnInit(): void {
         this.cart = this.cartService.getCart()
+
+        console.log(`Cart: `, this.cart)
+    }
+
+    onConfirmSale(saleDetails: Checkout) {
+        this.cartService.confirmSale(saleDetails)
     }
 }
