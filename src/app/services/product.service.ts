@@ -30,17 +30,12 @@ export class ProductService {
         return this.http.get<Product[]>('../assets/data.json')
     }
 
-    addToProdServCart(product: Product): Observable<Product> {
-        return this.http.get<Product>(`../assets/data.json/${product.id}`)
-    }
-
     getProduct(product: Product): Product {
         return product
     }
 
     storeClickedProduct(product: Product): void {
         this.productDetailItem = product
-        console.log(`Product Detail Item: `, this.productDetailItem)
     }
 
     showProductDetailItem(): Product {

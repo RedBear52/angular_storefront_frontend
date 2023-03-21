@@ -25,18 +25,10 @@ export class ProductListItemComponent {
     ngOnInit(): void {}
 
     onAddToCart(product: Product): void {
-        // console.log(
-        //     `onAddToCart(product) method has been called by button click and emitted the following product info:
-        //     ${product.name}
-        //     ${product.price}
-        //     ${product.description}
-        //     `
-        // )
         this.onAddProductToCart.emit(product)
     }
 
     onSelect(product: Product): void {
-        // console.log(product)
         this.productService.storeClickedProduct(product)
     }
 }

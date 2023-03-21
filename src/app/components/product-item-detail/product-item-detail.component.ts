@@ -40,4 +40,8 @@ export class ProductItemDetailComponent {
     getCart(): Product[] {
         return this.cartService.getCart()
     }
+
+    getProductQuantity(product: Product): number {
+        return this.cartService.getProductQuantity(product)
+    }
 }

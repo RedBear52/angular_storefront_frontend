@@ -29,6 +29,10 @@ export class ProductListComponent {
 
     ngOnInit(): void {
         this.productService.getProducts().subscribe((products) => {
+            // for (let index = 0; index < products.length; index++) {
+            //     const product = products[index]
+            //     product['quantity'] += 1
+            // }
             this.products = products
             // console.log(this.products)
         })
