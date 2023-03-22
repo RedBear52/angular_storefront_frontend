@@ -30,6 +30,7 @@ export class CartComponent {
     }
 
     onConfirmSale(saleDetails: Checkout) {
-        this.cartService.confirmSale(saleDetails)
+        this.checkout = this.cartService.confirmSale(saleDetails)
+        console.log(`Checkout: `, this.checkout)
     }
 }

@@ -80,8 +80,9 @@ export class CartService {
         this.getProductQuantity(product)
     }
 
-    confirmSale(saleDetails: Checkout) {
+    confirmSale(saleDetails: Checkout): Checkout {
         console.log(`saleDetails: `, saleDetails)
+        this.saleDetails = saleDetails
 
         alert(`Thank you for your purchase!
         Your order has been placed.
@@ -94,17 +95,25 @@ export class CartService {
             
         Thank you for shopping with us!
                 `)
-        this.saleDetails = saleDetails
-        return this.showSaleDetails()
+        console.log(saleDetails)
+        this.showSaleDetails()
+        return this.saleDetails
     }
 
     showSaleDetails(): Checkout {
-        console.log(`Sale Details: `, this.saleDetails)
         const saleDeetKeys = Object.keys(this.saleDetails)
-        console.log(`Sale Details Keys: `, saleDeetKeys)
         const saleDeetValues = Object.values(this.saleDetails)
-        console.log(`Sale Details Values: `, saleDeetValues)
+        const saleDeetItems = Object.entries(this.saleDetails)
+        console.log(`saleDeetItems: `, saleDeetItems)
 
+        saleDeetItems.forEach((item) => {
+            const parse = {
+                [item[0]]: item[1],
+            }
+            console.log(`parse  : `, parse)
+
+            return parse as []
+        })
         return this.saleDetails
     }
 }

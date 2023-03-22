@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Product } from '../../models/Product'
+import { Checkout } from '../../models/Checkout'
 
 @Component({
     selector: 'app-cart-item',
@@ -9,6 +10,7 @@ import { Product } from '../../models/Product'
 export class CartItemComponent {
     @Input() product: Product
     @Input() cart: Product[] = []
+    @Input() checkout: Checkout
     // @Output() onAddToCart: EventEmitter<Product> = new EventEmitter()
 
     constructor() {
@@ -19,6 +21,15 @@ export class CartItemComponent {
             quantity: 0,
             url: '',
             description: '',
+        }
+
+        this.checkout = {
+            fullName: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            cardNumber: '',
         }
     }
 
