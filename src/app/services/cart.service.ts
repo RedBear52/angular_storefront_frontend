@@ -95,11 +95,15 @@ export class CartService {
         Thank you for shopping with us!
                 `)
         this.saleDetails = saleDetails
-        this.showSaleDetails()
+        return this.showSaleDetails()
     }
 
     showSaleDetails(): Checkout {
         console.log(`Sale Details: `, this.saleDetails)
+        const saleDeetKeys = Object.keys(this.saleDetails)
+        console.log(`Sale Details Keys: `, saleDeetKeys)
+        const saleDeetValues = Object.values(this.saleDetails)
+        console.log(`Sale Details Values: `, saleDeetValues)
 
         return this.saleDetails
     }

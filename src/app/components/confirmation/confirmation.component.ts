@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { CartService } from 'src/app/services/cart.service'
 import { Checkout } from 'src/app/models/Checkout'
 
@@ -8,7 +8,8 @@ import { Checkout } from 'src/app/models/Checkout'
     styleUrls: ['./confirmation.component.css'],
 })
 export class ConfirmationComponent {
-    saleDetails: Checkout
+    saleDeetArray: string[] = []
+    @Input() saleDetails: Checkout
 
     constructor(private cartService: CartService) {
         this.saleDetails = {
@@ -21,11 +22,5 @@ export class ConfirmationComponent {
         }
     }
 
-    ngOnInit(): void {
-        this.saleDetails = this.cartService.showSaleDetails()
-    }
-
-    // logDetails() {
-    //     console.log(`Sale Details: `, this.saleDetails)
-    // }
+    ngOnInit(): void {}
 }

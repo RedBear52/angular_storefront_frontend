@@ -13,16 +13,15 @@ export class CheckoutComponent {
     city: string
     state: string
     zip: string
-    cardName: string
+    cardNumber: string
 
     constructor() {
         this.fullName = ''
-
         this.address = ''
         this.city = ''
         this.state = ''
         this.zip = ''
-        this.cardName = ''
+        this.cardNumber = ''
     }
 
     onSubmit() {
@@ -31,7 +30,7 @@ export class CheckoutComponent {
         console.log(`City: ${this.city}`)
         console.log(`State: ${this.state}`)
         console.log(`Zip: ${this.zip}`)
-        console.log(`Card Name: ${this.cardName}`)
+        console.log(`Card Name: ${this.cardNumber}`)
 
         const saleDetails = {
             fullName: this.fullName,
@@ -39,7 +38,7 @@ export class CheckoutComponent {
             city: this.city,
             state: this.state,
             zip: this.zip,
-            cardName: this.cardName,
+            cardNumber: this.cardNumber,
         }
 
         this.onCheckout.emit(saleDetails)
@@ -52,6 +51,6 @@ export class CheckoutComponent {
         this.city = ''
         this.state = ''
         this.zip = ''
-        this.cardName = ''
+        this.cardNumber = ''
     }
 }
