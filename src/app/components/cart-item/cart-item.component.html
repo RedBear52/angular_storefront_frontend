@@ -15,17 +15,23 @@
         <div class="product-list-item-details">
             <div class="product-list-item-name">{{ product.name }}</div>
             <div class="product-list-item-price">${{ product.price }}</div>
-            <div class="product-list-item-description">
-                {{ product.description }}
-            </div>
         </div>
-        <div class="quantity-container">
-            <button class="button" (click)="onDecrement(product)">
-                dec.: {{ product.quantity }}
+        <div class="incrementer">
+            <button
+                mat-icon-button
+                color="accent"
+                (click)="onDecrement(product)"
+            >
+                <i class="material-icons">remove_circle_outline</i>
             </button>
+            <!-- wrap in form field (input type number??) -->
             qty: {{ product.quantity }}
-            <button class="button" (click)="onIncrement(product)">
-                inc.: {{ product.quantity }}
+            <button
+                mat-icon-button
+                color="accent"
+                (click)="onIncrement(product)"
+            >
+                <i class="material-icons">add_circle_outline</i>
             </button>
         </div>
     </div>

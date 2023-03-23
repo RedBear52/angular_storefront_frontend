@@ -11,7 +11,8 @@ import { CartService } from '../../services/cart.service'
 export class ProductItemDetailComponent {
     product: Product
     cart: Product[]
-    itemCount: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    cartTotal: number
+    cartTotalString: string
 
     constructor(
         private productService: ProductService,
@@ -27,6 +28,8 @@ export class ProductItemDetailComponent {
         }
 
         this.cart = []
+        this.cartTotal = 0
+        this.cartTotalString = ''
     }
 
     ngOnInit(): void {
@@ -50,5 +53,23 @@ export class ProductItemDetailComponent {
         console.log(`quantity: `, product)
 
         this.cartService.changeQuantity(product, quantity)
+    }
+
+    onDecrement(product: Product): void {
+        if (product.quantity > 1) {
+            this.cartService.decrement(product)
+            this.cartService.getCartTotal()
+        } else if (product.quantity === 1) {
+            this.cartService.removeProductFromCart(product)
+        }
+        this.cartTotal = this.cartService.getCartTotal()
+        this.cartTotalString = this.cartTotal.toFixed(2)
+    }
+
+    onIncrement(product: Product): void {
+        this.cartService.increment(product)
+        this.cartService.addToCart(product)
+        this.cartTotalString = this.cartService.getCartTotal().toFixed(2)
+        this.cartTotal = this.cartService.getCartTotal()
     }
 }

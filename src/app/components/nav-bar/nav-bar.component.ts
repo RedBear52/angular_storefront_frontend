@@ -15,6 +15,8 @@ export class NavBarComponent {
 
     getCartCount() {
         this.cartCount = this.cartService.getCartCount()
+        console.log(`Cart Count: `, this.cartCount)
+
         return this.cartCount
     }
 }

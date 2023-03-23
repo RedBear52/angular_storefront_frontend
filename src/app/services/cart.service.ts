@@ -36,9 +36,6 @@ export class CartService {
 
             return this.cart
         }
-        alert(
-            `${product.quantity} ${product.name} has been added to your cart!`
-        )
     }
 
     removeProductFromCart(product: Product): Product[] {

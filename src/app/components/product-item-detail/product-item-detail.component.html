@@ -22,15 +22,24 @@
             <p>{{ product.description }}</p>
         </div>
         <div class="quantity">
-            <select
-                #userSelection
-                (change)="onChangeQuantity(product, +userSelection.value)"
-                class="user-quant-input"
-            >
-                <option *ngFor="let num of itemCount">
-                    {{ num }}
-                </option>
-            </select>
+            <div class="incrementer">
+                <button
+                    mat-icon-button
+                    color="accent"
+                    (click)="onDecrement(product)"
+                >
+                    <i class="material-icons">remove_circle_outline</i>
+                </button>
+                <!-- wrap in form field (input type number??) -->
+                qty: {{ product.quantity }}
+                <button
+                    mat-icon-button
+                    color="accent"
+                    (click)="onIncrement(product)"
+                >
+                    <i class="material-icons">add_circle_outline</i>
+                </button>
+            </div>
         </div>
         <div class="btn">
             <button

@@ -1,6 +1,13 @@
-<a routerLink="/cart">
-    <h1>Cart: {{ getCartCount() }}</h1>
-</a>
+<div class="navigation">
+    <a routerLink="/cart"
+        ><mat-icon
+            matBadge="{{ getCartCount() }}"
+            matBadgeColor="accent"
+            class="mat-icon-size"
+            >shopping_cart</mat-icon
+        ></a
+    >
+</div>
 <div class="link">
     <a routerLink="/"><button class="button">Keep shopping</button></a>
 </div>

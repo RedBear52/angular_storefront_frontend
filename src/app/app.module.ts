@@ -9,9 +9,15 @@ import { ProductItemDetailComponent } from './components/product-item-detail/pro
 import { NavBarComponent } from './components/nav-bar/nav-bar.component'
 import { CartComponent } from './components/cart/cart.component'
 import { CartItemComponent } from './components/cart-item/cart-item.component'
-import { FormsModule } from '@angular/forms';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { FormsModule } from '@angular/forms'
+import { CheckoutComponent } from './components/checkout/checkout.component'
 import { ConfirmationComponent } from './components/confirmation/confirmation.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatCardModule } from '@angular/material/card'
+import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { MatSelectModule } from '@angular/material/select'
+import { MatBadgeModule } from '@angular/material/badge'
 
 @NgModule({
     declarations: [
@@ -25,7 +31,18 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
         CheckoutComponent,
         ConfirmationComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatBadgeModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })
