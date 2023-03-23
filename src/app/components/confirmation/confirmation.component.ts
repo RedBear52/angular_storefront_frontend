@@ -15,7 +15,7 @@ export class ConfirmationComponent {
     city: string | null = ''
     state: string | null = ''
     zip: string | null = ''
-    total: string | null
+    total: number | null
 
     constructor(
         private cartService: CartService,
@@ -26,7 +26,7 @@ export class ConfirmationComponent {
         this.city = ''
         this.state = ''
         this.zip = ''
-        this.total = ''
+        this.total = 0
 
         // this.total = 0
     }

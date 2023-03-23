@@ -28,9 +28,23 @@ export class CartService {
     }
 
     addToCart(product: Product) {
-        this.cart.push(product)
-        this.getCartCount()
-        this.increment(product)
+        console.log(product)
+        if (this.cart.includes(product)) {
+            return this.cart
+        } else {
+            this.cart.push(product)
+
+            return this.cart
+        }
+        alert(
+            `${product.quantity} ${product.name} has been added to your cart!`
+        )
+    }
+
+    removeProductFromCart(product: Product): Product[] {
+        const index = this.cart.indexOf(product)
+        this.cart.splice(index, 1)
+        return this.cart
     }
 
     getCart(): Product[] {
@@ -62,7 +76,7 @@ export class CartService {
         this.total = this.cart
             .map((product) => product.price * product.quantity)
             .reduce((a, b) => a + b, 0)
-        return this.total.toFixed(2)
+        return this.total
     }
 
     clearCart(): Product[] {

@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Product } from '../../models/Product'
 import { ProductService } from '../../services/product.service'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-product-list-item',
@@ -10,8 +11,17 @@ import { ProductService } from '../../services/product.service'
 export class ProductListItemComponent {
     @Input() product: Product
     @Output() onAddProductToCart: EventEmitter<Product> = new EventEmitter()
+    cart: Product[] = []
+    name: string = ''
+    price: number = 0
+    description: string = ''
+    url: string = ''
+    quantity: number = 0
 
-    constructor(private productService: ProductService) {
+    constructor(
+        private productService: ProductService,
+        private router: Router
+    ) {
         this.product = {
             id: 0,
             name: '',
@@ -30,5 +40,10 @@ export class ProductListItemComponent {
 
     onSelect(product: Product): void {
         this.productService.storeClickedProduct(product)
+        const id = this.product.id
+
+        this.router.navigate(['/product-detail'], {
+            queryParams: { id },
+        })
     }
 }

@@ -1,17 +1,15 @@
 <div class="product-list">
     <div class="product-list-item">
         <div class="product-list-item-image">
-            <a routerLink="/product-detail">
-                <img
-                    (click)="onSelect(product)"
-                    [ngStyle]="{
-                        width: '210px',
-                        height: '315px'
-                    }"
-                    src="{{ product.url }}"
-                    alt="{{ product.name }}"
-                />
-            </a>
+            <img
+                (click)="onSelect(product)"
+                [ngStyle]="{
+                    width: '210px',
+                    height: '315px'
+                }"
+                src="{{ product.url }}"
+                alt="{{ product.name }}"
+            />
         </div>
         <div class="product-list-item-details">
             <div class="product-list-item-name">{{ product.name }}</div>

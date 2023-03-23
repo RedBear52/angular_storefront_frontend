@@ -19,5 +19,13 @@
                 {{ product.description }}
             </div>
         </div>
+        <div class="quantity-container">
+            <button class="button" (click)="onDecrement(product)">
+                dec.: {{ product.quantity }}
+            </button>
+            <button class="button" (click)="onIncrement(product)">
+                inc.: {{ product.quantity }}
+            </button>
+        </div>
     </div>
 </div>

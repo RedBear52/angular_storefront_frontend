@@ -29,27 +29,16 @@ export class ProductListComponent {
 
     ngOnInit(): void {
         this.productService.getProducts().subscribe((products) => {
-            // for (let index = 0; index < products.length; index++) {
-            //     const product = products[index]
-            //     product['quantity'] += 1
-            // }
+            products.forEach((product) => {
+                product.quantity += 1
+            })
             this.products = products
-            // console.log(this.products)
+            console.log(this.products)
         })
     }
-
-    // addToCart(product: Product) {
-    //     // console.log(product)
-    //     this.cart.push(product)
-    //     console.log(`Cart: `, this.cart)
-    // }
 
     addToCart(product: Product) {
         product = this.productService.getProduct(product)
         this.cartService.addToCart(product)
     }
-
-    //     getCart(): Product[] {
-    //         return this.cart
-    //     }
 }

@@ -12,7 +12,8 @@ export class CartComponent {
     checkout: Checkout
     cart: Product[] = []
     saleDetails: Checkout
-
+    cartTotal: number
+    cartTotalString: string
     constructor(private cartService: CartService) {
         this.checkout = {
             fullName: '',
@@ -31,11 +32,13 @@ export class CartComponent {
             zip: '',
             cardNumber: '',
         }
+        this.cartTotal = 0
+        this.cartTotalString = ''
     }
 
     ngOnInit(): void {
         this.cart = this.cartService.getCart()
-
+        this.cartTotal = this.cartService.getCartTotal()
         console.log(`Cart: `, this.cart)
     }
 
@@ -43,5 +46,16 @@ export class CartComponent {
         this.checkout = saleDetails
         this.saleDetails = this.cartService.confirmSale(saleDetails)
         console.log(`Checkout `, this.checkout)
+    }
+
+    onClearCart() {
+        this.cartService.clearCart()
+        this.cart = this.cartService.getCart()
+    }
+
+    getCartTotal() {
+        return (this.cartTotalString = this.cartService
+            .getCartTotal()
+            .toFixed(2))
     }
 }

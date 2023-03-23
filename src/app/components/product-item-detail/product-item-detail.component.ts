@@ -12,7 +12,6 @@ export class ProductItemDetailComponent {
     product: Product
     cart: Product[]
     itemCount: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    userSelection: number
 
     constructor(
         private productService: ProductService,
@@ -28,8 +27,6 @@ export class ProductItemDetailComponent {
         }
 
         this.cart = []
-
-        this.userSelection = 0
     }
 
     ngOnInit(): void {
@@ -50,9 +47,8 @@ export class ProductItemDetailComponent {
     }
 
     onChangeQuantity(product: Product, quantity: number) {
-        this.userSelection = quantity
-        // console.log(`quantity: `, this.userSelection)
+        console.log(`quantity: `, product)
 
-        this.cartService.changeQuantity(product, this.userSelection)
+        this.cartService.changeQuantity(product, quantity)
     }
 }

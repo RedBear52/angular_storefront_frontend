@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core'
 import { Router } from '@angular/router'
+import { Checkout } from '../../models/Checkout'
 
 @Component({
     selector: 'app-checkout',
@@ -33,7 +34,7 @@ export class CheckoutComponent {
         // console.log(`Zip: ${this.zip}`)
         // console.log(`Card Name: ${this.cardNumber}`)
 
-        const saleDetails: any = {
+        const saleDetails: Checkout = {
             fullName: this.fullName,
             address: this.address,
             city: this.city,
