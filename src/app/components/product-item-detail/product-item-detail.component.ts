@@ -51,7 +51,7 @@ export class ProductItemDetailComponent {
 
     onChangeQuantity(product: Product, quantity: number) {
         this.userSelection = quantity
-        console.log(`quantity: `, this.userSelection)
+        // console.log(`quantity: `, this.userSelection)
 
         this.cartService.changeQuantity(product, this.userSelection)
     }

@@ -1,1 +1,21 @@
-<p>{{ checkout }}</p>
+<p>
+    Thank you choosing MyStore, <strong>{{ fullName }}</strong
+    >!
+</p>
+<h3>Items purchased:</h3>
+<div class="cart-iteration" *ngFor="let item of cart">
+    <p>{{ item.quantity }} {{ item.name }}</p>
+</div>
+<h3>Total</h3>
+<p>{{ total }}</p>
+<br />
+<h3>Your order will be shippped to:</h3>
+<p>
+    {{ address }},
+    {{ city }}
+    {{ state }},
+    {{ zip }}
+</p>
+<div class="button">
+    <a routerLink="/"><button>Return to the store</button></a>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Product } from '../models/Product'
 import { Checkout } from '../models/Checkout'
+import { Router } from '@angular/router'
 
 @Injectable({
     providedIn: 'root',
@@ -9,13 +10,13 @@ export class CartService {
     cart: Product[] = []
     cartQuantity: number
     total: number
-    productQuantity: number
+    // productQuantity: number
     saleDetails: Checkout
 
-    constructor() {
+    constructor(private router: Router) {
         this.cartQuantity = 0
         this.total = 0
-        this.productQuantity = 0
+        // this.productQuantity = 0
         this.saleDetails = {
             fullName: '',
             address: '',
@@ -61,7 +62,7 @@ export class CartService {
         this.total = this.cart
             .map((product) => product.price * product.quantity)
             .reduce((a, b) => a + b, 0)
-        return this.total
+        return this.total.toFixed(2)
     }
 
     clearCart(): Product[] {
@@ -84,36 +85,39 @@ export class CartService {
         console.log(`saleDetails: `, saleDetails)
         this.saleDetails = saleDetails
 
-        alert(`Thank you for your purchase!
-        Your order has been placed.
-        Your order will be shipped to:
-        ${saleDetails.fullName}
-        ${saleDetails.address}
-        ${saleDetails.city}, ${saleDetails.state} ${saleDetails.zip}
+        localStorage.setItem('sale_info', JSON.stringify(saleDetails))
 
-        Your total was: $${this.getCartTotal()}
-            
-        Thank you for shopping with us!
-                `)
+        // alert(`Thank you for your purchase!
+
+        // Your order will be shipped to:
+        // ${saleDetails.fullName}
+        // ${saleDetails.address}
+        // ${saleDetails.city}, ${saleDetails.state} ${saleDetails.zip}
+
+        // Your total was: $${this.getCartTotal()}
+
+        // Thank you for shopping with us!
+        //         `)
+
+        const currSaleInfo = {
+            fullName: saleDetails.fullName,
+            address: saleDetails.address,
+            city: saleDetails.city,
+            state: saleDetails.state,
+            zip: saleDetails.zip,
+            cardNumber: saleDetails.cardNumber,
+        }
         console.log(saleDetails)
-        this.showSaleDetails()
-        return this.saleDetails
-    }
-
-    showSaleDetails(): Checkout {
-        const saleDeetKeys = Object.keys(this.saleDetails)
-        const saleDeetValues = Object.values(this.saleDetails)
-        const saleDeetItems = Object.entries(this.saleDetails)
-        console.log(`saleDeetItems: `, saleDeetItems)
-
-        saleDeetItems.forEach((item) => {
-            const parse = {
-                [item[0]]: item[1],
-            }
-            console.log(`parse  : `, parse)
-
-            return parse as []
+        this.router.navigate([`/confirmation`], {
+            queryParams: {
+                fullName: saleDetails.fullName,
+                address: saleDetails.address,
+                city: saleDetails.city,
+                state: saleDetails.state,
+                zip: saleDetails.zip,
+            },
         })
-        return this.saleDetails
+
+        return currSaleInfo
     }
 }

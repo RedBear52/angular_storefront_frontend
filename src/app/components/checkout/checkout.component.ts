@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-checkout',
@@ -15,7 +16,7 @@ export class CheckoutComponent {
     zip: string
     cardNumber: string
 
-    constructor() {
+    constructor(private router: Router) {
         this.fullName = ''
         this.address = ''
         this.city = ''
@@ -25,14 +26,14 @@ export class CheckoutComponent {
     }
 
     onSubmit() {
-        console.log(`Full Name: ${this.fullName}`)
-        console.log(`Address: ${this.address}`)
-        console.log(`City: ${this.city}`)
-        console.log(`State: ${this.state}`)
-        console.log(`Zip: ${this.zip}`)
-        console.log(`Card Name: ${this.cardNumber}`)
+        // console.log(`Full Name: ${this.fullName}`)
+        // console.log(`Address: ${this.address}`)
+        // console.log(`City: ${this.city}`)
+        // console.log(`State: ${this.state}`)
+        // console.log(`Zip: ${this.zip}`)
+        // console.log(`Card Name: ${this.cardNumber}`)
 
-        const saleDetails = {
+        const saleDetails: any = {
             fullName: this.fullName,
             address: this.address,
             city: this.city,
@@ -40,6 +41,9 @@ export class CheckoutComponent {
             zip: this.zip,
             cardNumber: this.cardNumber,
         }
+        this.router.navigate(['/confirmation'], {
+            queryParams: saleDetails,
+        })
 
         this.onCheckout.emit(saleDetails)
         this.clearCheckoutForm()

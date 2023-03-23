@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { CartService } from 'src/app/services/cart.service'
-import { Checkout } from 'src/app/models/Checkout'
-import { ActivatedRoute, ParamMap } from '@angular/router'
 import { Product } from 'src/app/models/Product'
+import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
     selector: 'app-confirmation',
@@ -11,26 +10,42 @@ import { Product } from 'src/app/models/Product'
 })
 export class ConfirmationComponent {
     @Input() cart: Product[] = []
-    saleDeetArray: string[] = []
-    checkout: Checkout
+    fullName: string | null = ''
+    address: string | null = ''
+    city: string | null = ''
+    state: string | null = ''
+    zip: string | null = ''
+    total: string | null
 
-    constructor(private cartService: CartService) {
-        this.checkout = {
-            fullName: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
-            cardNumber: '',
-        }
+    constructor(
+        private cartService: CartService,
+        private route: ActivatedRoute
+    ) {
+        this.fullName = ''
+        this.address = ''
+        this.city = ''
+        this.state = ''
+        this.zip = ''
+        this.total = ''
+
+        // this.total = 0
     }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.cart = this.cartService.getCart()
-        console.log(`Cart: `, this.cart)
-    }
+        this.total = this.cartService.getCartTotal()
+        // this.saleDeets = JSON.parse(localStorage.getItem('fullName') as any)
+        // console.log(`Sale Deets: `, this.saleDeets)
+        this.route.queryParamMap.subscribe((params) => {
+            this.fullName = params.get('fullName')
+            this.address = params.get('address')
+            this.city = params.get('city')
+            this.state = params.get('state')
+            this.zip = params.get('zip')
+            console.log(this.fullName)
+            this.fullName = this.fullName as string
 
-    // onChange() {
-    //     this.checkout = this.cartService.showSaleDetails()
-    // }
+            // this.total = Number(params.get('total'))
+        })
+    }
 }

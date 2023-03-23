@@ -11,9 +11,19 @@ import { Checkout } from '../../models/Checkout'
 export class CartComponent {
     checkout: Checkout
     cart: Product[] = []
+    saleDetails: Checkout
 
     constructor(private cartService: CartService) {
         this.checkout = {
+            fullName: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: '',
+            cardNumber: '',
+        }
+
+        this.saleDetails = {
             fullName: '',
             address: '',
             city: '',
@@ -30,7 +40,8 @@ export class CartComponent {
     }
 
     onConfirmSale(saleDetails: Checkout) {
-        this.checkout = this.cartService.confirmSale(saleDetails)
-        console.log(`Checkout: `, this.checkout)
+        this.checkout = saleDetails
+        this.saleDetails = this.cartService.confirmSale(saleDetails)
+        console.log(`Checkout `, this.checkout)
     }
 }
