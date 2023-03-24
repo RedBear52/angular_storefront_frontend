@@ -3,8 +3,8 @@
         <div class="product-detail-image">
             <img
                 [ngStyle]="{
-                    width: '85%',
-                    height: '85%'
+                    width: '40%',
+                    height: '40%'
                 }"
                 src="{{ product.url }}"
                 alt="{{ product.name }}"
@@ -42,14 +42,15 @@
             </div>
         </div>
         <div class="btn">
-            <button
-                (click)="onAddToCart(product)"
-                class="product-list-item-actions"
-                mat-raised-button
-                color="primary"
-            >
-                Add to cart
-            </button>
+            <mat-dialog-actions (click)="openDialog(product)">
+                <button
+                    class="product-list-item-actions"
+                    mat-raised-button
+                    color="primary"
+                >
+                    Add to cart
+                </button>
+            </mat-dialog-actions>
         </div>
     </div>
 </div>

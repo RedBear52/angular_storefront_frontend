@@ -64,5 +64,6 @@ export class ProductListItemComponent {
         this.dialog.open(DialogBodyComponent, {
             width: '300px',
         })
+        this.onAddToCart(product)
     }
 }

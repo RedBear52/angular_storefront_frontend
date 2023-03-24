@@ -2,6 +2,8 @@ import { Component } from '@angular/core'
 import { Product } from '../../models/Product'
 import { ProductService } from '../../services/product.service'
 import { CartService } from '../../services/cart.service'
+import { MatDialog } from '@angular/material/dialog'
+import { DialogBodyComponent } from 'src/app/dialog-body/dialog-body.component'
 
 @Component({
     selector: 'app-product-item-detail',
@@ -16,7 +18,8 @@ export class ProductItemDetailComponent {
 
     constructor(
         private productService: ProductService,
-        private cartService: CartService
+        private cartService: CartService,
+        public dialog: MatDialog
     ) {
         this.product = {
             id: 0,
@@ -71,5 +74,14 @@ export class ProductItemDetailComponent {
         this.cartService.addToCart(product)
         this.cartTotalString = this.cartService.getCartTotal().toFixed(2)
         this.cartTotal = this.cartService.getCartTotal()
+    }
+
+    openDialog(product: Product): void {
+        this.dialog.open(DialogBodyComponent, {
+            width: '300px',
+            data: { product },
+        })
+
+        this.onAddToCart(product)
     }
 }
