@@ -8,6 +8,7 @@ import { CartService } from 'src/app/services/cart.service'
 })
 export class NavBarComponent {
     cartCount: number
+    hidden: boolean = true
 
     constructor(private cartService: CartService) {
         this.cartCount = 0
@@ -18,5 +19,15 @@ export class NavBarComponent {
         console.log(`Cart Count: `, this.cartCount)
 
         return this.cartCount
+    }
+
+    toggleBadgeViz(hidden: boolean) {
+        if (this.cartCount > 0) {
+            this.hidden = false
+            return this.hidden
+        } else {
+            this.hidden = true
+            return this.hidden
+        }
     }
 }

@@ -1,13 +1,17 @@
-<div class="navigation">
-    <a routerLink="/cart"
-        ><mat-icon
-            matBadge="{{ getCartCount() }}"
-            matBadgeColor="accent"
-            class="mat-icon-size"
-            >shopping_cart</mat-icon
-        ></a
-    >
-</div>
+<mat-toolbar class="navigation" color="primary">
+    <div class="cart-icon-container">
+        <a routerLink="/cart"
+            ><mat-icon
+                class="cart-icon"
+                matBadge="{{ getCartCount() }}"
+                matBadgeColor="accent"
+                matBadgeSize="small"
+                [matBadgeHidden]="toggleBadgeViz(hidden)"
+                >shopping_cart</mat-icon
+            ></a
+        >
+    </div>
+</mat-toolbar>
 <div class="link">
     <a routerLink="/"><button class="button">Keep shopping</button></a>
 </div>

@@ -1,27 +1,83 @@
-<form>
+<form (ngSubmit)="onSubmit()" #myForm="ngForm">
     <h1>Checkout Form</h1>
-    <input
-        type="text"
-        name="fullName"
-        placeholder="Tater Jenkins"
-        [(ngModel)]="fullName"
-    />
-    <input
-        type="text"
-        name="address"
-        placeholder="1234 Main St"
-        [(ngModel)]="address"
-    />
-    <input type="text" name="city" placeholder="Anytown" [(ngModel)]="city" />
-    <input type="text" name="state" placeholder="CA" [(ngModel)]="state" />
-    <input type="text" name="zip" placeholder="12345" [(ngModel)]="zip" />
-    <input
-        type="text"
-        name="cardNumber"
-        placeholder="1234 5678 9012 3456"
-        [(ngModel)]="cardNumber"
-    />
-    <button type="submit" value="submit" class="btn" (click)="onSubmit()">
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">Full Name</mat-label>
+        <input
+            matInput
+            type="text"
+            name="fullName"
+            [(ngModel)]="fullName"
+            required
+            minlength="5"
+        />
+        <mat-error *ngIf="myForm.controls['fullName'].invalid" class="error-msg"
+            >5 characters min</mat-error
+        >
+    </mat-form-field>
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">Street Address</mat-label>
+        <input
+            matInput
+            type="text"
+            name="address"
+            [(ngModel)]="address"
+            required
+            minlength="8"
+        />
+        <mat-error *ngIf="myForm.controls['address'].invalid" class="error-msg"
+            >8 characters min</mat-error
+        >
+    </mat-form-field>
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">City</mat-label>
+        <input matInput type="text" name="city" [(ngModel)]="city" required />
+        <mat-error *ngIf="myForm.controls['city'].invalid" class="error-msg"
+            >Field required</mat-error
+        >
+    </mat-form-field>
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">State</mat-label>
+        <input matInput type="text" name="state" [(ngModel)]="state" required />
+        <mat-error *ngIf="myForm.controls['state'].invalid" class="error-msg"
+            >Field required</mat-error
+        >
+    </mat-form-field>
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">Zip Code</mat-label>
+        <input
+            matInput
+            type="text"
+            name="zip"
+            [(ngModel)]="zip"
+            required
+            minlength="5"
+        />
+        <mat-error *ngIf="myForm.controls['zip'].invalid" class="error-msg"
+            >Zip 5 digits min</mat-error
+        >
+    </mat-form-field>
+
+    <mat-form-field hideRequiredMarker appearance="outline">
+        <mat-label floatLable="auto">Card Number</mat-label>
+        <input
+            matInput
+            type="text"
+            name="cardNumber"
+            [(ngModel)]="cardNumber"
+            required
+            minlength="16"
+        />
+        <mat-error *ngIf="myForm.controls['zip'].invalid" class="error-msg"
+            >Enter valid card #</mat-error
+        >
+    </mat-form-field>
+    <button
+        type="submit"
+        value="submit"
+        class="btn"
+        [disabled]="!myForm.form.valid"
+        (click)="onSubmit()"
+    >
         Complete Purchase
     </button>
 </form>

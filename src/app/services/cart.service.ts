@@ -73,6 +73,7 @@ export class CartService {
         this.total = this.cart
             .map((product) => product.price * product.quantity)
             .reduce((a, b) => a + b, 0)
+        this.total = parseFloat(this.total.toFixed(2))
         return this.total
     }
 

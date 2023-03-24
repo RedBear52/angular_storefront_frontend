@@ -2,11 +2,12 @@
     <app-cart-item *ngFor="let product of cart" [product]="product">
     </app-cart-item>
 </div>
-<div class="button" id="clear-cart-button">
-    <button (click)="onClearCart()">Clear Cart</button>
-</div>
+
 <div class="total">
     <p>Total: ${{ getCartTotal() }}</p>
+</div>
+<div class="button" id="clear-cart-button">
+    <button (click)="onClearCart()" mat-raised-button>Clear Cart</button>
 </div>
 <div class="checkout-container">
     <app-checkout (onCheckout)="onConfirmSale($event)"> </app-checkout>

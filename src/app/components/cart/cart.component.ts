@@ -14,6 +14,7 @@ export class CartComponent {
     saleDetails: Checkout
     cartTotal: number
     cartTotalString: string
+
     constructor(private cartService: CartService) {
         this.checkout = {
             fullName: '',

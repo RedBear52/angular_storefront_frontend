@@ -18,6 +18,9 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button'
 import { MatSelectModule } from '@angular/material/select'
 import { MatBadgeModule } from '@angular/material/badge'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 
 @NgModule({
     declarations: [
@@ -42,7 +45,21 @@ import { MatBadgeModule } from '@angular/material/badge'
         MatButtonModule,
         MatSelectModule,
         MatBadgeModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
     ],
+    exports: [
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSelectModule,
+        MatBadgeModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatInputModule,
+    ],
+
     providers: [],
     bootstrap: [AppComponent],
 })
