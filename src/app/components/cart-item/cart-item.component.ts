@@ -41,9 +41,9 @@ export class CartItemComponent {
 
     ngOnInit(): void {}
 
-    AddToCart(product: Product): void {
-        // this.onAddToCart.emit(product)
-    }
+    // AddToCart(product: Product): void {
+    //     // this.onAddToCart.emit(product)
+    // }
 
     onDecrement(product: Product): void {
         if (product.quantity > 1) {
@@ -52,7 +52,7 @@ export class CartItemComponent {
         } else if (product.quantity === 1) {
             alert(`Removing ${product.name} from your cart!
 
-            To add this item back to your cart, click the "Keep Shopping" button, navigate back to the ${product.name} display, and click the "Add to Cart" button.`)
+To add this item back to your cart, click the "Keep Shopping" button, navigate back to the ${product.name} display, and click the "Add to Cart" button.`)
             this.cartService.removeProductFromCart(product)
         }
         this.cartTotal = this.cartService.getCartTotal()

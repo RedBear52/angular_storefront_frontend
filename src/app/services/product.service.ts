@@ -3,16 +3,16 @@ import { Observable } from 'rxjs'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Product } from '../models/Product'
 
-const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-}
+// const httpOptions = {
+//     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+// }
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProductService {
-    apiUrl = '../assets/data.json'
-    productList: Product[] = []
+    // apiUrl = '../assets/data.json'
+    // productList: Product[] = []
     productDetailItem: Product
 
     constructor(private http: HttpClient) {
