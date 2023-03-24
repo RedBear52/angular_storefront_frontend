@@ -33,7 +33,6 @@ export class ProductListComponent {
                 product.quantity += 1
             })
             this.products = products
-            console.log(this.products)
         })
     }
 

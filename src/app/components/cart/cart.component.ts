@@ -43,12 +43,6 @@ export class CartComponent {
         console.log(`Cart: `, this.cart)
     }
 
-    onConfirmSale(saleDetails: Checkout) {
-        this.checkout = saleDetails
-        this.saleDetails = this.cartService.confirmSale(saleDetails)
-        console.log(`Checkout `, this.checkout)
-    }
-
     onClearCart() {
         this.cartService.clearCart()
         this.cart = this.cartService.getCart()

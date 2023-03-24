@@ -10,13 +10,11 @@ export class CartService {
     cart: Product[] = []
     cartQuantity: number
     total: number
-    // productQuantity: number
     saleDetails: Checkout
 
     constructor(private router: Router) {
         this.cartQuantity = 0
         this.total = 0
-        // this.productQuantity = 0
         this.saleDetails = {
             fullName: '',
             address: '',
@@ -48,10 +46,6 @@ export class CartService {
         return this.cart
     }
 
-    getCartItems(): Product[] {
-        return this.cart
-    }
-
     getCartCount(): number {
         this.cartQuantity = this.cart
             .map((product) => product.quantity)
@@ -79,59 +73,16 @@ export class CartService {
 
     clearCart(): Product[] {
         alert(`Removing all products from your cart!`)
-
         this.cart = []
         return this.cart
     }
 
     getProductQuantity(product: Product): number {
-        console.log(product.quantity)
         return product.quantity
     }
 
     changeQuantity(product: Product, quantity: number) {
-        console.log(`Product quantity: `, quantity)
         product.quantity = quantity
         this.getProductQuantity(product)
-    }
-
-    confirmSale(saleDetails: Checkout): Checkout {
-        console.log(`saleDetails: `, saleDetails)
-        this.saleDetails = saleDetails
-
-        localStorage.setItem('sale_info', JSON.stringify(saleDetails))
-
-        // alert(`Thank you for your purchase!
-
-        // Your order will be shipped to:
-        // ${saleDetails.fullName}
-        // ${saleDetails.address}
-        // ${saleDetails.city}, ${saleDetails.state} ${saleDetails.zip}
-
-        // Your total was: $${this.getCartTotal()}
-
-        // Thank you for shopping with us!
-        //         `)
-
-        const currSaleInfo = {
-            fullName: saleDetails.fullName,
-            address: saleDetails.address,
-            city: saleDetails.city,
-            state: saleDetails.state,
-            zip: saleDetails.zip,
-            cardNumber: saleDetails.cardNumber,
-        }
-        console.log(saleDetails)
-        this.router.navigate([`/confirmation`], {
-            queryParams: {
-                fullName: saleDetails.fullName,
-                address: saleDetails.address,
-                city: saleDetails.city,
-                state: saleDetails.state,
-                zip: saleDetails.zip,
-            },
-        })
-
-        return currSaleInfo
     }
 }

@@ -27,13 +27,6 @@ export class CheckoutComponent {
     }
 
     onSubmit() {
-        // console.log(`Full Name: ${this.fullName}`)
-        // console.log(`Address: ${this.address}`)
-        // console.log(`City: ${this.city}`)
-        // console.log(`State: ${this.state}`)
-        // console.log(`Zip: ${this.zip}`)
-        // console.log(`Card Name: ${this.cardNumber}`)
-
         const saleDetails: Checkout = {
             fullName: this.fullName,
             address: this.address,
@@ -45,8 +38,6 @@ export class CheckoutComponent {
         this.router.navigate(['/confirmation'], {
             queryParams: saleDetails,
         })
-
-        this.onCheckout.emit(saleDetails)
         this.clearCheckoutForm()
     }
 

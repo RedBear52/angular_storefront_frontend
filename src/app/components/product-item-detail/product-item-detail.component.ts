@@ -40,22 +40,7 @@ export class ProductItemDetailComponent {
     }
 
     onAddToCart(product: Product) {
-        // console.log(product)
         this.cartService.addToCart(product)
-    }
-
-    getCart(): Product[] {
-        return this.cartService.getCart()
-    }
-
-    getProductQuantity(product: Product): number {
-        return this.cartService.getProductQuantity(product)
-    }
-
-    onChangeQuantity(product: Product, quantity: number) {
-        console.log(`quantity: `, product)
-
-        this.cartService.changeQuantity(product, quantity)
     }
 
     onDecrement(product: Product): void {

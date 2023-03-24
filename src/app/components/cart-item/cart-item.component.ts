@@ -14,7 +14,6 @@ export class CartItemComponent {
     @Input() checkout: Checkout
     @Input() cartTotal: number
     @Input() cartTotalString: string
-    // @Output() onAddToCart: EventEmitter<Product> = new EventEmitter()
 
     constructor(private cartService: CartService) {
         this.product = {
@@ -40,10 +39,6 @@ export class CartItemComponent {
     }
 
     ngOnInit(): void {}
-
-    // AddToCart(product: Product): void {
-    //     // this.onAddToCart.emit(product)
-    // }
 
     onDecrement(product: Product): void {
         if (product.quantity > 1) {
