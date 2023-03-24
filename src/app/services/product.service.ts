@@ -34,8 +34,9 @@ export class ProductService {
         return product
     }
 
-    storeClickedProduct(product: Product): void {
+    storeClickedProduct(product: Product): Product {
         this.productDetailItem = product
+        return this.productDetailItem
     }
 
     showProductDetailItem(): Product {

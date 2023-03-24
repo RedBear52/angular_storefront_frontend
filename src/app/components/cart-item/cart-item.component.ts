@@ -50,6 +50,9 @@ export class CartItemComponent {
             this.cartService.decrement(product)
             this.cartService.getCartTotal()
         } else if (product.quantity === 1) {
+            alert(`Removing ${product.name} from your cart!
+
+            To add this item back to your cart, click the "Keep Shopping" button, navigate back to the ${product.name} display, and click the "Add to Cart" button.`)
             this.cartService.removeProductFromCart(product)
         }
         this.cartTotal = this.cartService.getCartTotal()

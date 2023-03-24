@@ -13,6 +13,6 @@ a {
 
 .cart-icon {
     color: rgb(255, 255, 255);
-    transform: scale(2);
+    /* transform: scale(2); */
     margin: 01rem;
 }

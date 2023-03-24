@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { Product } from '../../models/Product'
 import { ProductService } from '../../services/product.service'
 import { Router } from '@angular/router'
+import { MatDialog } from '@angular/material/dialog'
+import { DialogBodyComponent } from 'src/app/dialog-body/dialog-body.component'
 
 @Component({
     selector: 'app-product-list-item',
@@ -17,12 +19,23 @@ export class ProductListItemComponent {
     description: string = ''
     url: string = ''
     quantity: number = 0
+    cartItem: Product
 
     constructor(
         private productService: ProductService,
-        private router: Router
+        private router: Router,
+        public dialog: MatDialog
     ) {
         this.product = {
+            id: 0,
+            name: '',
+            price: 0,
+            quantity: 0,
+            url: '',
+            description: '',
+        }
+
+        this.cartItem = {
             id: 0,
             name: '',
             price: 0,
@@ -44,6 +57,12 @@ export class ProductListItemComponent {
 
         this.router.navigate(['/product-detail'], {
             queryParams: { id },
+        })
+    }
+
+    openDialog(product: Product): void {
+        this.dialog.open(DialogBodyComponent, {
+            width: '300px',
         })
     }
 }

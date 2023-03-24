@@ -21,6 +21,8 @@ import { MatBadgeModule } from '@angular/material/badge'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogBodyComponent } from './dialog-body/dialog-body.component'
 
 @NgModule({
     declarations: [
@@ -33,6 +35,7 @@ import { MatInputModule } from '@angular/material/input'
         CartItemComponent,
         CheckoutComponent,
         ConfirmationComponent,
+        DialogBodyComponent,
     ],
     imports: [
         BrowserModule,
@@ -48,6 +51,7 @@ import { MatInputModule } from '@angular/material/input'
         MatToolbarModule,
         MatFormFieldModule,
         MatInputModule,
+        MatDialogModule,
     ],
     exports: [
         MatCardModule,
@@ -58,6 +62,7 @@ import { MatInputModule } from '@angular/material/input'
         MatToolbarModule,
         MatFormFieldModule,
         MatInputModule,
+        MatDialogModule,
     ],
 
     providers: [],

@@ -78,6 +78,8 @@ export class CartService {
     }
 
     clearCart(): Product[] {
+        alert(`Removing all products from your cart!`)
+
         this.cart = []
         return this.cart
     }

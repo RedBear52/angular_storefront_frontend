@@ -7,7 +7,9 @@
     <p>Total: ${{ getCartTotal() }}</p>
 </div>
 <div class="button" id="clear-cart-button">
-    <button (click)="onClearCart()" mat-raised-button>Clear Cart</button>
+    <button (click)="onClearCart()" mat-stroked-button color="accent">
+        Clear Cart
+    </button>
 </div>
 <div class="checkout-container">
     <app-checkout (onCheckout)="onConfirmSale($event)"> </app-checkout>

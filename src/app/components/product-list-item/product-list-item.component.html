@@ -19,13 +19,26 @@
             </div>
         </div>
         <div class="product-item-button">
-            <button
-                (click)="onAddToCart(product)"
-                class="product-list-item-actions"
-                class="product-list-item-button"
-            >
-                Add to cart
-            </button>
+            <mat-dialog-actions (click)="openDialog(product)">
+                <button
+                    (click)="onAddToCart(product)"
+                    class="product-list-item-actionss"
+                    mat-raised-button
+                    color="primary"
+                >
+                    Add to cart
+                </button>
+            </mat-dialog-actions>
         </div>
     </div>
 </div>
+<!-- <mat-dialog-actions>
+    <button
+        mat-raised-button
+        color="primary"
+        (click)="openDialog()"
+        (click)="onAddToCart(product)"
+    >
+        Dialog
+    </button>
+</mat-dialog-actions> -->
