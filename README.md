@@ -1,27 +1,45 @@
-# MyUdacityStore
+# My Angular Storefront Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+This is the penultimate project in Udacity's Full Stack Javascript Developer nanodegree course. The developer is asked to provide a clean and logically organized storefront web application with common e-commerce functionality (adding products to a cart, checking out, etc.).
 
-## Development server
+The requisite functionality is made possible through the leveraging of the Angular framework's many built-in features, including routing, module management, components, services, dialogues and http client modules.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In this particular project, I've used a JSON file to store the product data.
 
-## Code scaffolding
+This is not a good practice for a production application, but building a store's backend was not the focus of this endeavor.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+With a relatively minimal amount of effort, the JSON file could be replaced with a pre-existing database.
 
-## Build
+The styling of the application is also quite minimal as it is not the primary focus of the project.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Additionally, the Angular Material library was used to provide a consistent layout and visual signature.
 
-## Running unit tests
+## Web Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+-   Angular
+-   Angular Material
+-   Node.js
+-   HTTP
+-   Prettier
+-   Typescript
+-   HTML
+-   CSS
+-   JSON
+-   Git
+-   GitHub
+-   VS Code
 
-## Running end-to-end tests
+## Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+-   Node.js
+-   Angular CLI
 
-## Further help
+## How to Run the Application Locally
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clone the repository to your local machine: `git clone https://github.com/RedBear52/myStoreProject.git`
+2. Navigate to the project directory: `cd myStoreProject`
+3. Run `npm install` to install the project's dependencies
+4. Run `ng serve` to start the application
+5. Navigate to `http://localhost:4200/` in your browser on the default port.
+
+    If you prefer a different port than 4200, you can specify as much through the CLI command: `ng serve --port <preferred port numbere>`.
