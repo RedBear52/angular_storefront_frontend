@@ -42,4 +42,4 @@ Additionally, the Angular Material library was used to provide a consistent layo
 4. Run `ng serve` to start the application
 5. Navigate to `http://localhost:4200/` in your browser on the default port.
 
-    If you prefer a different port than 4200, you can specify as much through the CLI command: `ng serve --port <preferred port numbere>`.
+    If you prefer a different port than 4200, you can specify as much through the CLI command: `ng serve --port <preferred port number>`.
