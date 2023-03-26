@@ -1,16 +1,16 @@
 .confirmation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
 .card-content {
     margin-bottom: 1rem;
 }
 
-.mat-card { 
+.mat-card {
     width: 75vw;
     height: 75vh;
     color: white;
@@ -28,4 +28,3 @@
     margin-bottom: 0;
     display: block;
 }
-

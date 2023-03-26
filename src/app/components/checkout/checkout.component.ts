@@ -38,6 +38,7 @@ export class CheckoutComponent {
             queryParams: saleDetails,
         })
         this.clearCheckoutForm()
+        this.clearCart()
     }
 
     clearCheckoutForm() {
@@ -47,5 +48,9 @@ export class CheckoutComponent {
         this.state = ''
         this.zip = ''
         this.cardNumber = ''
+    }
+
+    clearCart() {
+        this.cartService.clearCart()
     }
 }

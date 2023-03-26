@@ -24,9 +24,6 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDialogModule } from '@angular/material/dialog'
 import { DialogBodyComponent } from './dialog-body/dialog-body.component'
 import { MatTabsModule } from '@angular/material/tabs'
-import { MatStepperModule } from '@angular/material/stepper'
-import { MatTestComponent } from './testFolder/mat-test/mat-test.component'
-import { FooterComponent } from './components/footer/footer.component'
 import { MatGridListModule } from '@angular/material/grid-list'
 
 @NgModule({
@@ -41,8 +38,6 @@ import { MatGridListModule } from '@angular/material/grid-list'
         CheckoutComponent,
         ConfirmationComponent,
         DialogBodyComponent,
-        MatTestComponent,
-        FooterComponent,
     ],
     imports: [
         BrowserModule,
@@ -60,7 +55,6 @@ import { MatGridListModule } from '@angular/material/grid-list'
         MatInputModule,
         MatDialogModule,
         MatTabsModule,
-        MatStepperModule,
         MatGridListModule,
     ],
     exports: [
@@ -74,7 +68,6 @@ import { MatGridListModule } from '@angular/material/grid-list'
         MatInputModule,
         MatDialogModule,
         MatTabsModule,
-        MatStepperModule,
         MatGridListModule,
     ],
 

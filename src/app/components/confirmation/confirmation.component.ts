@@ -40,7 +40,5 @@ export class ConfirmationComponent {
             this.zip = params.get('zip')
             this.fullName = this.fullName as string
         })
-
-       
     }
 }
