@@ -1,4 +1,22 @@
 <mat-toolbar class="navigation" color="primary">
+    <div class="logo-home-link-container">
+        <div class="logo-container">
+            <img
+                class="logo-home-link"
+                src="../../../favicon.ico"
+                alt="Angular favicon logo"
+            />
+        </div>
+        <div class="home-link-container">
+            <button class="button" mat-flat-button color="primary">
+                <a routerLink="/"> My Angular Store </a>
+            </button>
+        </div>
+        <a routerLink="/cart">
+            <button mat-flat-button color="primary">View Cart</button>
+        </a>
+    </div>
+    <div class="view-cart-button-container"></div>
     <div class="cart-icon-container">
         <a routerLink="/cart"
             ><mat-icon
@@ -12,10 +30,3 @@
         >
     </div>
 </mat-toolbar>
-<div class="link">
-    <a routerLink="/"
-        ><button mat-raised-button color="primary" class="button">
-            Keep shopping
-        </button></a
-    >
-</div>

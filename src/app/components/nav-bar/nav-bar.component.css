@@ -1,18 +1,33 @@
 .navigation {
     display: flex;
     justify-content: space-between;
+
+}
+
+.logo-home-link-container {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+img {
+    margin-top: 0.065rem;
+    margin-right: 0;
+}
+
+.home-link-container _{
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding: 2rem;
 }
 
 a {
     text-decoration: none;
-    color: primary;
+    color: rgb(255, 255, 255);
     font-size: 1rem;
 }
 
+
 .cart-icon {
     color: rgb(255, 255, 255);
-    /* transform: scale(2); */
-    margin: 01rem;
 }

@@ -1,0 +1,31 @@
+.confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.card-content {
+    margin-bottom: 1rem;
+}
+
+.mat-card { 
+    width: 75vw;
+    height: 75vh;
+    color: white;
+    background-color: #3f51b5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+}
+
+.button {
+    color: #3f51b5;
+    margin-bottom: 0;
+    display: block;
+}
+

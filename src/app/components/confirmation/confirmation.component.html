@@ -1,18 +1,26 @@
-<p>
-    Thank you choosing MyStore, <strong>{{ fullName }}</strong
-    >!
-</p>
-<h3>Items purchased:</h3>
-<div class="cart-iteration" *ngFor="let item of cart">
-    <p>{{ item.quantity }} {{ item.name }}</p>
+<div class="confirmation-container">
+    <mat-card class="mat-card">
+        <mat-card-content class="card-content">
+            <h4>
+                Thank you for choosing My Angular Store,
+                <strong>{{ fullName }}</strong
+                >!
+            </h4>
+            <br /><br /><br />
+            <h3>Your order will be shippped to:</h3>
+            <p>
+                {{ address }},
+                {{ city }}
+                {{ state }},
+                {{ zip }}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="store-link-container">
+                <button class="button" mat-flat-button color="accent">
+                    <a routerLink="/"> Back to the Store </a>
+                </button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
 </div>
-<h3>Total</h3>
-<p>${{ total }}</p>
-<br />
-<h3>Your order will be shippped to:</h3>
-<p>
-    {{ address }},
-    {{ city }}
-    {{ state }},
-    {{ zip }}
-</p>

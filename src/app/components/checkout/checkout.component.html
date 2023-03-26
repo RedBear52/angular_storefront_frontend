@@ -1,6 +1,10 @@
-<form (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <h1>Checkout Form</h1>
-    <mat-form-field hideRequiredMarker appearance="outline">
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="form-container">
+    <h1>Checkout</h1>
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">Full Name</mat-label>
         <input
             matInput
@@ -14,7 +18,11 @@
             >5 characters min</mat-error
         >
     </mat-form-field>
-    <mat-form-field hideRequiredMarker appearance="outline">
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">Street Address</mat-label>
         <input
             matInput
@@ -28,21 +36,33 @@
             >8 characters min</mat-error
         >
     </mat-form-field>
-    <mat-form-field hideRequiredMarker appearance="outline">
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">City</mat-label>
         <input matInput type="text" name="city" [(ngModel)]="city" required />
         <mat-error *ngIf="myForm.controls['city'].invalid" class="error-msg"
             >Field required</mat-error
         >
     </mat-form-field>
-    <mat-form-field hideRequiredMarker appearance="outline">
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">State</mat-label>
         <input matInput type="text" name="state" [(ngModel)]="state" required />
         <mat-error *ngIf="myForm.controls['state'].invalid" class="error-msg"
             >Field required</mat-error
         >
     </mat-form-field>
-    <mat-form-field hideRequiredMarker appearance="outline">
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">Zip Code</mat-label>
         <input
             matInput
@@ -57,7 +77,11 @@
         >
     </mat-form-field>
 
-    <mat-form-field hideRequiredMarker appearance="outline">
+    <mat-form-field
+        class="mat-form-field"
+        hideRequiredMarker
+        appearance="outline"
+    >
         <mat-label floatLable="auto">Card Number</mat-label>
         <input
             matInput

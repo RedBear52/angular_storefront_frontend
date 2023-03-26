@@ -1,0 +1,21 @@
+.product-list-container {
+    display: flex;
+    flex-direction: flex-start;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    padding: 1rem;
+    overflow: scroll;
+}
+
+.list-items {
+    display: flex;
+    flex-direction: flex-start;
+}
+
+.cart-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

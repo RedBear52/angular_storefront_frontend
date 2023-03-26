@@ -1,7 +1,7 @@
-<div class="product-list-container">
+<div class="product-list-item-container">
     <app-product-list-item
         *ngFor="let product of products"
-        class="product-list-container"
+        class="product-list"
         [product]="product"
         (onAddProductToCart)="addToCart(product)"
     >

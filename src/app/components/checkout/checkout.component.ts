@@ -1,6 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core'
+import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 import { Checkout } from '../../models/Checkout'
+import { CartService } from '../../services/cart.service'
 
 @Component({
     selector: 'app-checkout',
@@ -8,8 +9,6 @@ import { Checkout } from '../../models/Checkout'
     styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent {
-    @Output() onCheckout: EventEmitter<any> = new EventEmitter()
-
     fullName: string
     address: string
     city: string
@@ -17,7 +16,7 @@ export class CheckoutComponent {
     zip: string
     cardNumber: string
 
-    constructor(private router: Router) {
+    constructor(private cartService: CartService, private router: Router) {
         this.fullName = ''
         this.address = ''
         this.city = ''

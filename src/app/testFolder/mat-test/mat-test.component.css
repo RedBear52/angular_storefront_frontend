@@ -1,19 +1,18 @@
-.mat-grid-list-container {
+.mat-grid-list {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 1rem;
+    background-color: #eee;
 }
 
-.uber-container {
-    margin: 1rem;
+.grid-tile-1 {
+    background-color: rgb(227, 255, 127);
 }
 
-.title {
-    font-size: 3rem;
-    font-weight: bold;
-    padding: 1rem;
-    padding-top: 4rem;
+.grid-tile-2 {
+  
+
+    background-color: pink;
 }
 
 img {
@@ -25,8 +24,5 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 2rem;
     height: 100%;
-
 }
