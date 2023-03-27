@@ -14,6 +14,7 @@ export class CartItemComponent {
     @Input() checkout: Checkout
     @Input() cartTotal: number
     @Input() cartTotalString: string
+    quantity: number
 
     constructor(private cartService: CartService) {
         this.product = {
@@ -36,9 +37,31 @@ export class CartItemComponent {
 
         this.cartTotal = 0
         this.cartTotalString = ''
+        this.quantity = 0
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.quantity = this.cartService.getProductQuantity(this.product)
+    }
+
+    quantityChange(value: number, product: Product): void {
+        // this.product.quantity = this.cartService.getProductQuantity(product)
+        console.log(`Value: `, value)
+        console.log(`Quantity: `, this.quantity)
+        console.log(`Product: `, product)
+        console.log(`Product Quantity: `, product.quantity)
+
+        if (product.quantity > value) {
+            console.log(`Decrementing ${this.product.name} by 1`)
+            this.onDecrement(product)
+            this.quantity = value
+            console.log(this.quantity)
+        } else if (product.quantity < value) {
+            console.log(`Incrementing ${this.product.name} by 1`)
+            this.onIncrement(product)
+            this.quantity = value
+        }
+    }
 
     onDecrement(product: Product): void {
         if (product.quantity > 1) {

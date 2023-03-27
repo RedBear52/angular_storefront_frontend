@@ -40,10 +40,9 @@ export class CartComponent {
     ngOnInit(): void {
         this.cart = this.cartService.getCart()
         this.cartTotal = this.cartService.getCartTotal()
-        console.log(`Cart: `, this.cart)
     }
 
-    onClearCart() {
+    onCheckout() {
         this.cartService.clearCart()
         this.cart = this.cartService.getCart()
     }

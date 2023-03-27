@@ -26,7 +26,6 @@ export class CartService {
     }
 
     addToCart(product: Product) {
-        console.log(product)
         if (this.cart.includes(product)) {
             return this.cart
         } else {

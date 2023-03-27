@@ -11,10 +11,11 @@
             <mat-grid-tile class="grid-tile-2">
                 <mat-card class="example-card">
                     <div class="title">{{ product.name }}</div>
+                    <br />
                     <mat-card-subtitle class="price"
                         >${{ product.price }}
                     </mat-card-subtitle>
-
+                    <br />
                     <mat-card-content>
                         <p>
                             {{ product.name }} is one of our best selling itesms
@@ -25,7 +26,7 @@
                             discerning of palates. Try it today!`
                         </p>
                     </mat-card-content>
-                    <div class="quantity">
+                    <!-- <div class="quantity">
                         <div class="incrementers">
                             <button
                                 mat-icon-button
@@ -45,7 +46,17 @@
                                 <i class="material-icons">add_circle_outline</i>
                             </button>
                         </div>
-                    </div>
+                    </div> -->
+
+                    <!-- <form>
+                        <input
+                            type="number"
+                            name="quantity"
+                            [(ngModel)]="quantity"
+                            (ngModelChange)="quantityChange($event, product)"
+                        />
+                    </form> -->
+                    <br />
                     <mat-card-actions>
                         <mat-dialog-actions>
                             <button
